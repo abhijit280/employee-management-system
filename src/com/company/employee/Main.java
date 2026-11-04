@@ -2,33 +2,31 @@ package com.company.employee;
 
 public class Main {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		System.out.println("Employee Management System");
+        System.out.println("Employee Management System");
 
-		EmployeeService service = new EmployeeService();
+        EmployeeService service = new EmployeeService();
 
-		Employee emp1 = new Employee(101, "Abhijit", "IT", 45000);
+        Employee emp = new Employee(
+                103,
+                "Charlie",
+                "Finance",
+                55000
+        );
 
-		Employee emp2 = new Employee(102, "Rahul", "HR", 35000);
+        service.addEmployee(emp);
 
-		// Add employees
-		service.addEmployee(emp1);
-		service.addEmployee(emp2);
+        System.out.println("New employee added successfully");
 
-		// Display all employees
-		System.out.println("\nAll Employees:");
+        System.out.println("\nAll Employees:");
 
-		for (Employee employee : service.getAllEmployees()) {
-			System.out.println(
-					employee.getEmployeeId() + " - " + employee.getEmployeeName() + " - " + employee.getDepartment());
-		}
-
-		// Search employee
-		Employee result = service.getEmployeeById(101);
-
-		if (result != null) {
-			System.out.println("\nEmployee Found: " + result.getEmployeeName());
-		}
-	}
+        for (Employee employee : service.getAllEmployees()) {
+            System.out.println(
+                    employee.getEmployeeId() + " - "
+                    + employee.getEmployeeName() + " - "
+                    + employee.getDepartment()
+            );
+        }
+    }
 }
