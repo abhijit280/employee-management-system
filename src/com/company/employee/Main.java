@@ -6,6 +6,7 @@ public class Main {
 
         System.out.println("Employee Management System");
 
+        // Developer A: Employee creation
         EmployeeService service = new EmployeeService();
 
         Employee emp = new Employee(
@@ -18,7 +19,18 @@ public class Main {
         service.addEmployee(emp);
 
         System.out.println("New employee added successfully");
+        
+        // Developer B: Salary calculation
+        SalaryCalculator calculator = new SalaryCalculator();
 
+        double salary = calculator.calculateGrossSalary(45000);
+
+        System.out.println("Gross Salary: " + salary);
+
+        // Developer B: Employee report
+        EmployeeReport report = new EmployeeReport();
+
+        report.generateEmployeeReport();
         System.out.println("\nAll Employees:");
 
         for (Employee employee : service.getAllEmployees()) {
