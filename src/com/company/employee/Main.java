@@ -2,33 +2,18 @@ package com.company.employee;
 
 public class Main {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
-		System.out.println("Employee Management System");
+        System.out.println("Employee Management System");
 
-		EmployeeService service = new EmployeeService();
+        SalaryCalculator calculator = new SalaryCalculator();
 
-		Employee emp1 = new Employee(101, "Abhijit", "IT", 45000);
+        double salary = calculator.calculateGrossSalary(45000);
 
-		Employee emp2 = new Employee(102, "Rahul", "HR", 35000);
+        System.out.println("Gross Salary: " + salary);
 
-		// Add employees
-		service.addEmployee(emp1);
-		service.addEmployee(emp2);
+        EmployeeReport report = new EmployeeReport();
 
-		// Display all employees
-		System.out.println("\nAll Employees:");
-
-		for (Employee employee : service.getAllEmployees()) {
-			System.out.println(
-					employee.getEmployeeId() + " - " + employee.getEmployeeName() + " - " + employee.getDepartment());
-		}
-
-		// Search employee
-		Employee result = service.getEmployeeById(101);
-
-		if (result != null) {
-			System.out.println("\nEmployee Found: " + result.getEmployeeName());
-		}
-	}
+        report.generateEmployeeReport();
+    }
 }
